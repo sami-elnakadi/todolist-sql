@@ -11,7 +11,7 @@ catch(Exception $e)
 }
 
 if (isset ($_POST['tache'])){
-    $tache=$_POST['tache'];
+    $tache= htmlspecialchars($_POST['tache']);
     $bdd->exec("INSERT INTO Todolist(Tâche) VALUES('$tache')");
 };
 
@@ -21,7 +21,7 @@ if (isset ($_POST['tache'])){
 if(isset($_POST['supprimer']) AND isset($_POST['delete'])){
     foreach($_POST['delete'] as $select){
     $bdd->exec("DELETE FROM Todolist WHERE tâche='$select'");
-    $bdd->exec("INSERT INTO Archive(Archive) VALUES('$select')");
+    $bddA->exec("INSERT INTO Archive(Archive) VALUES('$select')");
     }
 }
 header('Location: index.php');

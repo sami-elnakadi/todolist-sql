@@ -28,32 +28,33 @@ $resultatArchive = $bdd -> query('SELECT * FROM Archive');
 </head>
 
 <body>  
-        <div class="container">
+    <div class="container">
         <h1> Activités de la journée</h1>
             <div class="row">     
                 <div class="col-md-6">
                 
                     <form role="form" name="inscription" method="post" action="db.php" id='form'>
-                    <div class="list">
-                        <?php
-                        echo '<table><th><h3>A faire</h3></th>';
-                        while ($donnees = $resultat->fetch())
-                        {
-                        echo '<tr>';
-                        echo'<td><input type="checkbox" name="delete[]" id="delete" value="'.$donnees['Tâche'].'">'.$donnees['Tâche'].'</td>';
-                        echo '</tr>';
-                        }
-                        echo '</table>';
-                        $resultat->closeCursor();
-                        ?>                    
-                        <button type="submit" class="btn btn-primary" name="supprimer" value="supprimer">Supprimer</button>
-                    </div>        
-                </div>
+                        <div class="list">
+                            <?php
+                            echo '<table><th><h3>A faire</h3></th>';
+                            while ($donnees = $resultat->fetch())
+                            {
+                            echo '<tr>';
+                            echo'<td><input type="checkbox" name="delete[]" id="delete" value="'.$donnees['Tâche'].'">'.$donnees['Tâche'].'</td>';
+                            echo '</tr>';
+                            }
+                            echo '</table>';
+                            $resultat->closeCursor();
+                            ?>                    
+                            <button type="submit" class="btn btn-primary" name="supprimer" value="supprimer">Valider</button>
+                        </div>  
                     </form>
-                    <form role="form" name="inscription" method="post" action="db.php" id='form'>
-                <div class="col-md-6">
-                    <?php
+                </div>
 
+                <div class="col-md-6">   
+                    <form role="form" name="inscription" method="post" action="db.php" id='form'>
+                
+                    <?php
                     echo '<div class="archive"><table><th><h3>Archive</h3></th>';
                     while ($donneesArchive = $resultatArchive->fetch())
                     {
@@ -70,12 +71,12 @@ $resultatArchive = $bdd -> query('SELECT * FROM Archive');
                     <div class = "row">
                         <div class="all col-md-6" id="envois">  
                             <label for="tache" >Ajouter une tâche</label>
-                            <input class="form-control" type="text" maxlength="60" placeholder="Tâche à faire" name="tache"/>
+                            <input class="form-control" type="text" maxlength="60" placeholder="Tâche à faire" name="tache" required/>
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary" name="valider" value="Envoyer">Enregistrer</button>
-            </form>
-        </div>
+                    </form>
+    </div>
      
 </body>

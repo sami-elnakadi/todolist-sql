@@ -16,7 +16,6 @@ body{
 
 .archive{
     height:400px;
-    width: 500px;
     overflow:auto;
     border: 1px solid black;
 }
