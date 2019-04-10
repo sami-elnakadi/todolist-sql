@@ -4,21 +4,34 @@ body{
 }
 
 .container{
-    margin-top:6vh;
+    margin-top:5vh;
     background-color: beige;
 }
 
 .list{
     height:400px;
     overflow:auto;
+    border: 1px solid black;
 }
 
 .archive{
     height:400px;
+    width: 500px;
     overflow:auto;
+    border: 1px solid black;
 }
 
 .archive td{
     color:grey;
     text-decoration: line-through;
 }
+
+button{
+    margin-top: 3vh;
+}
+
+/* #envois{
+    display: flex;
+    flex-direction: space-around;
+    justify-content: center;
+} */

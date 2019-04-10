@@ -46,8 +46,11 @@ $resultatArchive = $bdd -> query('SELECT * FROM Archive');
                         echo '</table>';
                         $resultat->closeCursor();
                         ?>                    
+                        <button type="submit" class="btn btn-primary" name="supprimer" value="supprimer">Supprimer</button>
                     </div>        
                 </div>
+                    </form>
+                    <form role="form" name="inscription" method="post" action="db.php" id='form'>
                 <div class="col-md-6">
                     <?php
 
@@ -65,14 +68,13 @@ $resultatArchive = $bdd -> query('SELECT * FROM Archive');
             </div>
 
                     <div class = "row">
-                        <div class="all col-md-6">  
+                        <div class="all col-md-6" id="envois">  
                             <label for="tache" >Ajouter une tâche</label>
                             <input class="form-control" type="text" maxlength="60" placeholder="Tâche à faire" name="tache"/>
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary" name="valider" value="Envoyer">Enregistrer</button>
-                    <button type="submit" class="btn btn-primary" name="supprimer" value="supprimer">Supprimer</button>
             </form>
         </div>
      
