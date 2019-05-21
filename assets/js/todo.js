@@ -1,4 +1,3 @@
-
 function check() {
     let bouton = document.getElementById("valider");
     let x = document.getElementsByClassName("check");
@@ -33,3 +32,27 @@ function check2() {
         bouton2.style.display ="none";
     }
 } 
+
+// Fonction recherche
+
+function myFunction() {
+    // Declare variables 
+    let input, filter, table, tr, td, j, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementsById("tach");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (j = 0; j < tr.length; j++) {
+      td = tr[j].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[j].style.display = "";
+        } else {
+          tr[j].style.display = "none";
+        }
+      } 
+    }
+  }
