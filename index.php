@@ -2,7 +2,7 @@
 try
 {
 	// On se connecte à MySQL
-    $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'user', 'user');
+    $bdd = new PDO('mysql:host=localhost;dbname=id9263491_todolist;charset=utf8', 'id9263491_sami','BeCode2019');
 }
 catch(Exception $e)
 {
@@ -23,23 +23,25 @@ $resultatArchive = $bdd -> query('SELECT * FROM Archive');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
     <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    <link type="text/css" rel="stylesheet" href="./assets/css/db.css">
+    <link type="text/css" rel="stylesheet" href="./todolist-sql/assets/css/db.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>To do list</title>
 </head>
 
 <body>  
-<img src="./assets/img/test.png" alt="cahier" class="image-fluid fond">
+<img src="./todolist-sql/assets/img/test.png" alt="cahier" class="image-fluid fond">
     <div class="container">
         <h1> To do list</h1>
+        
             <div class="row">     
-                <div class="col-md-6">
+                <div class="col-md-6">   
                 
-                    <form role="form" name="inscription" method="post" action="db.php" id='form'>
+                    <form role="form" name="inscription" method="post" action="https://todolistbecode.000webhostapp.com/todolist-sql/db.php" id='form'>
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Chercher tâche.."> 
                         <div class="list">
                             <?php
-                            echo '<table class="tache"><th><h3><i class="fas fa-times"></i> A faire</h3></th>';
+                            echo '<table id="tach" class="tache"><th><h3><i class="fas fa-times"></i> A faire</h3></th>';
                             while ($donnees = $resultat->fetch())
                             {
                             echo '<tr>';
@@ -55,10 +57,10 @@ $resultatArchive = $bdd -> query('SELECT * FROM Archive');
                 </div>
 
                 <div class="col-md-6">   
-                    <form role="form" name="inscription" method="post" action="db.php" id='form'>
+                    <form role="form" name="inscription" method="post" action="./todolist-sql/db.php" id='form'>
                 
                     <?php
-                    echo '<div class="archive"><table><th><h3> <i class="fas fa-check"></i> Fait</h3></th>';
+                    echo '<div class="archive"><table class="tache"><th><h3> <i class="fas fa-check"></i> Fait</h3></th>';
                     while ($donneesArchive = $resultatArchive->fetch())
                     {
                       echo '<tr>';
@@ -74,7 +76,7 @@ $resultatArchive = $bdd -> query('SELECT * FROM Archive');
             </div>
 
                     <div class = "row">
-                    <form role="form" name="inscription" method="post" action="db.php" id='form'>
+                    <form role="form" name="inscription" method="post" action="./todolist-sql/db.php" id='form'>
                         <div class="all col-md-12" id="envois">  
                             <label for="tache" >Ajouter une tâche</label>
                             <input class="form-control" type="text" maxlength="60" placeholder="Tâche à faire" name="tache" required/>
@@ -84,23 +86,10 @@ $resultatArchive = $bdd -> query('SELECT * FROM Archive');
                     <button type="submit" class="btn btn-primary" name="valider" value="Envoyer">Ajouter</button>
                     </form>
     </div>
-    <!DOCTYPE html>
-<html>
-<head>
-    <title>Inclusion de fichier javascript dans une page</title>
-</head>
-
-<body>
-    <!-- 
-
-        tout le contenu de la page 
-
-    -->
+   
 
 
-
-    <script src="./assets/js/todo.js" type="text/javascript"></script>
+    <script src="./todolist-sql/assets/js/todo.js" type="text/javascript"></script>
 </body>
 </html>
 
-</body>
