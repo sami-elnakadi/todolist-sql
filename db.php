@@ -2,7 +2,7 @@
 try
 {
 	// On se connecte à MySQL
-    $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'user', 'user');
+    $bdd = new PDO('mysql:host=localhost;dbname=id9263491_todolist;charset=utf8', 'id9263491_sami', 'BeCode2019');
 }
 catch(Exception $e)
 {
@@ -11,7 +11,8 @@ catch(Exception $e)
 }
 
 if (isset ($_POST['tache'])){
-    $tache= htmlspecialchars($_POST['tache']);
+    $task=htmlspecialchars($_POST['tache']);
+    $tache= filter_var($task, FILTER_SANITIZE_STRING);
     $bdd->exec("INSERT INTO Todolist(Tâche) VALUES('$tache')");
 }
  
@@ -31,17 +32,5 @@ if(isset($_POST['enleve']) AND isset($_POST['archiv'])){
 
 
 
-header('Location: index.php');
+header('Location: https://todolistbecode.000webhostapp.com/index.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    <link type="text/css" rel="stylesheet" href="/assets/db.css">
-    <title>To do list</title>
-</head>
