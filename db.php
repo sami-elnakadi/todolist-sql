@@ -19,14 +19,18 @@ if (isset ($_POST['tache'])){
  
 if(isset($_POST['supprimer']) AND isset($_POST['delete'])){
     foreach($_POST['delete'] as $select){
-    $bdd->exec("DELETE FROM Todolist WHERE tâche='$select'");
-    $bdd->exec("INSERT INTO Archive(Archive) VALUES('$select')");
+        $del=htmlspecialchars($select);
+        $delete= filter_var($del, FILTER_SANITIZE_STRING);
+    $bdd->exec("DELETE FROM Todolist WHERE tâche='$delete'");
+    $bdd->exec("INSERT INTO Archive(Archive) VALUES('$delete')");
     }
 }
 
 if(isset($_POST['enleve']) AND isset($_POST['archiv'])){
     foreach($_POST['archiv'] as $key){
-    $bdd->exec("DELETE FROM Archive WHERE Archive='$key'");
+        $arch=htmlspecialchars($key);
+        $archive= filter_var($arch, FILTER_SANITIZE_STRING);
+    $bdd->exec("DELETE FROM Archive WHERE Archive='$archive'");
     }
 }
 
@@ -34,3 +38,4 @@ if(isset($_POST['enleve']) AND isset($_POST['archiv'])){
 
 header('Location: https://todolistbecode.000webhostapp.com/index.php');
 ?>
+
